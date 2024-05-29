@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA_SCRIPT_TASK_07</title>
+    <style>
+        img{
+            position:relative;
+        }
+        @keyframes move{
+            from{left:0%;}
+            to{left:100%;}
+        }
+    </style>
+</head>
+<body>
+    <img id="train" width="200px" height="200px" src="https://thumbs.dreamstime.com/b/handsome-machinist-cartoon-uo-train-smile-waving-pict-handsome-machinist-cartoon-uo-train-smile-waving-102189491.jpg">
+    <center>
+        <h2 style="color:blue">Click the following buttons to hanadle animation</h2>
+        <button type="button" onclick="start()">Start</button>
+        <button type="button" onclick="stop()">Stop</button>
+    </center>
+    <script>
+        function start(){
+            document.getElementById("train").style.animation="move 10s linear infinite";
+        }
+        function stop(){
+            document.getElementById("train").style.animationPlayState="paused";
+        }
+    </script>
+</body>
+</html>

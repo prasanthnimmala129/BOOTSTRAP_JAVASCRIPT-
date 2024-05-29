@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA SCRIPT TASK-05</title>
+    <style>
+        .grid-container{
+            display:grid;
+            grid-template-columns:auto auto;
+        }
+        .grid-item{
+            margin:5px;
+        }
+        #item1,#item3,#item5,#item7{
+            text-align:right;
+        }
+        span{
+            margin-left:5px;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="return validate()" name="form1">
+        <div class="grid-container">
+            <div class="grid-item" id="item1">
+                <label for="fname">Name:</label>
+            </div>
+            <div class="grid-item" id="item2">
+                <input type="text" name="fname" id="fname" autocomplete="off"><span id="nameerr" style="color:red;"></span>
+            </div>
+            <div class="grid-item" id="item3">
+                <label for="email">Email:</label>
+            </div>
+            <div class="grid-item" id="item4">
+                <input type="email" name="email" id="email" autocomplete="off"><span id="emailerr" style="color:red;"></span>
+            </div>
+            <div class="grid-item" id="item5">
+                <label for="website">Website:</label>
+            </div>
+            <div class="grid-item" id="item6">
+                <input type="url" name="website" id="website"  autocomplete="off"><span id="websiteerr" style="color:red;"></span>
+            </div>
+            <div class="grid-item" id="item7">
+                <label for="message">Message:</label>
+            </div>
+            <div class="grid-item" id="item8">
+                <textarea id="message" cols="25" rows="5" autocomplete="off"></textarea><span id="messageerr" style="color:red;"></span>
+            </div>
+            <div class="grid-item" id="item9">
+            </div>
+            <div class="grid-item" id="item9">
+                <input type="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+    <script>
+        function validate(){
+            var fname=document.form1.fname.value;
+            var freg=/[a-z]+/i;
+            if(!freg.test(fname)){
+                document.getElementById("fname").style.border="2px solid red";
+                document.getElementById("nameerr").innerHTML="This field is required";
+            }else{
+                document.getElementById("fname").style.border="2px solid black";
+                document.getElementById("nameerr").innerHTML="";
+
+            }
+            var email=document.getElementById("email").value;
+            var remail=/^[a-z]+[0-9]*[@][a-z]+[.][a-z]+/;
+            if(!remail.test(email)){
+                document.getElementById("email").style.border="2px solid red";
+                document.getElementById("emailerr").innerHTML="A valid email address is required";
+            }else{
+                document.getElementById("email").style.border="2px solid black";
+                document.getElementById("emailerr").innerHTML="";
+            }
+            var web=document.getElementById("website").value;
+            var regurl=/[a-z]+/i;
+            if(!regurl.test(web)){
+                document.getElementById("website").style.border="2px solid red";
+                document.getElementById("websiteerr").innerHTML="A valid url is required";
+            }else{
+                document.getElementById("website").style.border="2px solid black";
+                document.getElementById("websiteerr").innerHTML="";
+            }
+            var mess=document.getElementById("message").value;
+            var rmess=/[a-z]+/i;
+            if(!rmess.test(mess)){
+                document.getElementById("message").style.border="2px solid red";
+                document.getElementById("messageerr").innerHTML="This field is required";
+            }else{
+                document.getElementById("message").style.border="2px solid black";
+                document.getElementById("messageerr").innerHTML="";
+            }
+            if(freg.test(fname) && remail.test(email) && regurl.test(web) && rmess.test(mess) ){
+                alert("Form Submitted Successfully")
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

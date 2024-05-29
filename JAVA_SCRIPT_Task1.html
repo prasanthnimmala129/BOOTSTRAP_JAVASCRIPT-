@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA SCRIPT TASK-01</title>
+    <style>
+        div{
+            margin:auto;
+            width:50%;
+            display:flex;
+            justify-content: center;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">REVERSE OF A NUMBER</h2>
+    <div>
+        <form>
+            <label for="number">Enter the Number:</label><br>
+            <input type="text" name="number" id="number" autocomplete="off"><br>
+            <label for="reverse">Reverse of Number:</label><br>
+            <input type="text" name="reverse" id="reverse" autocomplete="off"><br>
+            <button type="button" onclick="reversenum()">REVERSE</button>
+        </form>
+    </div>
+    <script>
+        function reversenum(){
+            var num=document.getElementById("number").value;
+            var intnum=Number.parseInt(num);
+            var rev=0;
+            while(intnum>0){
+                var temp=intnum%10;
+                rev=rev*10+temp;
+                intnum=Number.parseInt(intnum/10);
+            }
+            document.getElementById("reverse").value=rev;
+        }
+    </script>
+</body>
+</html>

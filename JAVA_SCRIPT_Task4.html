@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA SCRIPT TASK-04</title>
+    <style>
+        center{
+            margin-top:50px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h2>DATE AND TIME</h2>
+            <button type="button" onclick="date()">show date</button>
+            <p id="date"></p>
+            <button type="button" onclick="datetime()">show TIME</button>
+            <p id="datetime"></p>
+    </center>
+    <script>
+        function date(){
+            const date=new Date();
+            const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+            document.getElementById("date").innerHTML=date.getDate()+"/"+months[date.getMonth()]+"/"+date.getFullYear()
+        }
+        function datetime(){
+            const date=new Date();
+            document.getElementById("datetime").innerHTML=date;
+        }
+    </script>
+</body>
+</html>

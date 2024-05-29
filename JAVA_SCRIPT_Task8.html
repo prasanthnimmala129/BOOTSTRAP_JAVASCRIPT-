@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML_TASK-05</title>
+    <style>
+        th{
+            width:15%;
+            text-align:end;
+            padding-right:10px;
+        }
+        input[type="text"],input[type="email"],input[type="number"],textarea,input[type="password"]{
+            width:75%;
+            box-sizing: border-box;
+        }
+        input[type="submit"]{
+          text-align:center;
+          color:white;
+          background-color: red;
+          border-radius:10px;
+          padding:2px 10px;
+        }
+        span{
+          color:red;
+          padding-left:10px;
+        }
+        #maindiv{
+          padding-bottom: 20px;
+          margin:auto;
+          width:80%;
+          background:linear-gradient(to bottom,rgb(255, 237, 216),rgba(255, 208, 253, 0.97));
+        }
+    </style>
+</head>
+<body>
+      <div id="maindiv">
+        <table style="width:90%;margin:auto;">
+          <caption style="color:blue"><h2>Registration form</h2></caption>
+          <form onsubmit="return btnclick1()">
+              <tr>
+                  <th>First Name</th>
+                  <td><input type="text" id="fname" onkeyup="firstname()" onfocus="firstname()"><span id="ferr"></span></td>
+              </tr>
+              <tr>
+                  <th>Last Name</th>
+                  <td><input type="text" id="lname" onkeyup="lastname()" onfocus="lastname()"><span id="lerr"></span></td>
+              </tr>
+              <tr>
+                  <th>Email</th>
+                  <td><input type="email" id="email" onkeyup="validemail()" onfocus="validemail()" ><span id="eerr"></span></td>
+              </tr>
+              <tr>
+                  <th>Password</th>
+                  <td><input type="password" id="pwd" onkeyup="pass()" onfocus="pass()"><span id="perr" onkeyup=""></span></td>
+              </tr>
+              <tr>
+                  <th>Re-enter Password</th>
+                  <td><input type="password" id="rpwd" onkeyup="repass()" onfocus="repass()"><span id="rperr"></span></td>
+              </tr>
+              <tr>
+                  <th rowspan="2">Gender:</th>
+                  <td><input type="radio" value="male" id="male" name="gender" checked>Male</td>
+              </tr>
+              <tr>
+                  <td><input type="radio" value="female" id="female" name="gender">Female</td>
+              </tr>
+              <tr>
+                  <th>Age:</th>
+                  <td><input type="text" id="age" min="0" onkeyup="validage()" onfocus="validage()"><span id="aerr"></span></td>
+              </tr>
+              <tr>
+                  <th>Phone Number</th>
+                  <td><input type="text" id="phno" onkeyup="validphno()" onfocus="validphno()"><span id="pnerr"></span></td>
+              </tr>
+              <tr>
+                  <th>Address</th>
+                  <td><textarea rows="5" id="add" onkeyup="address()" onfocus="address()"></textarea><span id="terr"></span></td>
+              </tr>
+              <tr>
+                  <th>State</th>
+                  <td><input type="text" id="state" onkeyup="validstate()" onfocus="validstate()"><span id="serr"></span></td>
+              </tr>
+              <tr>
+                  <th>Country</th>
+                  <td>
+                      <select>
+                          <option value="">Choose your country</option>
+                          <option value="india">India</option>
+                          <option value="USA">USA</option>
+                          <option value="England">England</option>
+                      </select>
+                  </td>
+              </tr>
+              <tr>
+                  <th>Languages known</th>
+                  <td>
+                      <input type="checkbox" id="english" name="english">English
+                      <input type="checkbox" id="kannada" name="kanada">kannada
+                      <input type="checkbox" id="hindi" name="hindi">Hindi
+                      <input type="checkbox" id="telugu" name="telugu">Telugu
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="2">
+                      <div style="padding-left:10px;">
+                        <input type="checkbox" id="declaration"> Hereby I declare all the given details are true
+                      </div>
+                  </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="text-align:right;width:75%;border:2pxsolid green;">
+                  <div style="width:75%">
+                    Log in to <a href="https://ethnus.com/">Ethnus </a>website
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div style="text-align:center;width:80%;margin:auto;"><input type="submit" value="REGISTER" name="Register"></div>
+                </td>
+              </tr>
+            </form>
+          </table>
+      </div>
+<script>
+  function firstname() {
+    var fname=document.getElementById("fname").value;
+    var rfname=/[a-z]{5}/i;//atleast 5 letters
+    if(!rfname.test(fname)){
+      document.getElementById("ferr").innerHTML="POOR";
+      return false;
+    }else{
+      document.getElementById("ferr").innerHTML="";
+      return true;
+    }
+  }
+  function lastname() {
+    var lname=document.getElementById("lname").value;
+    var rlname=/[a-z]{5}/i;//atleast 5 letters
+    if(!rlname.test(lname)){
+      document.getElementById("lerr").innerHTML="POOR";
+      return false;
+    }else{
+      document.getElementById("lerr").innerHTML="";
+      return true;
+    }
+  }
+  function validemail() {
+    var email=document.getElementById("email").value;
+    var remail=/[a-z]+[0-9]*[@][a-z]+[.][a-z]+/i;
+    if(!remail.test(email)){
+      document.getElementById("eerr").innerHTML="POOR";
+      return false;
+    }else{
+      document.getElementById("eerr").innerHTML="";
+      return true;
+    }
+  }
+  function pass() {
+    var pwd=document.getElementById("pwd").value;
+    var rpwd=/(?=.*[0-9])(?=.*[a-z])/i;//atleast 1 letter and one digit
+    if(!rpwd.test(pwd)){
+      document.getElementById("perr").innerHTML="POOR";
+      return false;
+    }else{
+      document.getElementById("perr").innerHTML="";
+      return true;
+    }
+  }
+  function repass() {
+    var pwd=document.getElementById("pwd").value;
+    var repwd=/(?=.*[0-9])(?=.*[a-z])/i;
+    var rpwd=document.getElementById("rpwd").value;
+    if(!((pwd==rpwd) && (repwd.test(rpwd)))){
+      document.getElementById("rperr").innerHTML="POOR OR MISMATCH";
+      return false;
+    }else{
+      document.getElementById("rperr").innerHTML="";
+      return true;
+    }
+  }
+  function validage(){
+    var age=document.getElementById("age").value;
+    if(isNaN(age)){
+      document.getElementById("aerr").innerHTML="POOR";
+      return false;
+    }else{
+      document.getElementById("aerr").innerHTML="";
+      return true;
+    }
+  }
+  
+  function validphno() {
+    var phno=document.getElementById("phno").value;
+    var rphno=/[6-9][0-9]{9}/i;//valid phno
+    if(!rphno.test(phno)){
+      document.getElementById("pnerr").innerHTML="POOR";
+      return false;
+    }else{
+      document.getElementById("pnerr").innerHTML="";
+      return true;
+    }
+  }
+  function address() {
+    var add=document.getElementById("add").value;
+    var radd=/[a-z]{5}/i;//atleast 5 letters
+    if(!radd.test(add)){
+      document.getElementById("terr").innerHTML="POOR";
+      return false;
+    }else{
+      document.getElementById("terr").innerHTML="";
+      return true;
+    }
+  }
+  function validstate() {
+    var stat=document.getElementById("state").value;
+    var rstat=/[a-z]+/i;
+    if(!rstat.test(stat)){
+      document.getElementById("serr").innerHTML="POOR";
+      return false;
+    }else{
+      document.getElementById("serr").innerHTML="";
+      return true;
+    }
+  }
+  function btnclick1(){
+    if(firstname() && lastname() && validemail() && pass() && repass() && validage() && validphno() && address() && validstate()){
+      alert("YOUR FORM SUCCESSFULLY SUBMITTED");
+      return true;
+    }else{
+      alert("PLEASE PROVIDE VALID DATA");
+      return false;
+    }
+  }
+  </script>
+</body>
+</html>

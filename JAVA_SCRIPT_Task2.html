@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA SCRIPT TASK-02</title>
+    <style>
+        div{
+            margin:auto;
+            width:50%;
+            display:flex;
+            justify-content: center;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">STRING CHARACTERS IN ALPHABETICAL ORDER</h2>
+    <div>
+        <form>
+            <label for="string">Enter the String:</label><br>
+            <input type="text" name="string" id="string"><br>
+            <label for="char">Characters in String</label><br>
+            <input type="text" name="char" id="char"><br>
+            <button type="button" onclick="stringchar()">STRING CHARACTERS</button>
+        </form>
+    </div>
+    <script>
+        function stringchar(){
+            var s=document.getElementById("string").value;
+            const arr=s.split("");
+            arr.sort();
+            document.getElementById("char").value=arr;
+        }
+    </script>
+</body>
+</html>
